@@ -1,0 +1,21 @@
+common_name,wins,draws,losses,points_per_game,league_position,cards_total,shots,fouls
+Arsenal,21,7,10,1.84,5,76,377,412
+Tottenham Hotspur,23,2,13,1.87,4,62,433,376
+Manchester City,32,2,4,2.58,1,46,527,328
+Leicester City,15,7,16,1.37,9,67,420,351
+Crystal Palace,14,7,17,1.29,12,62,392,386
+Everton,15,9,14,1.42,8,63,396,432
+Burnley,11,7,20,1.05,15,77,309,360
+Southampton,9,12,17,1.03,16,77,383,420
+AFC Bournemouth,13,6,19,1.18,14,62,375,340
+Manchester United,19,9,10,1.74,6,81,434,433
+Liverpool,30,7,1,2.55,2,41,472,315
+Chelsea,21,9,8,1.89,3,49,446,339
+West Ham United,15,7,16,1.37,10,61,365,331
+Watford,14,8,16,1.32,11,85,347,433
+Newcastle United,12,9,17,1.18,13,61,366,423
+Cardiff City,10,4,24,0.89,18,68,342,374
+Fulham,7,5,26,0.68,19,72,376,423
+Brighton & Hove Albion,9,9,20,0.95,17,68,320,463
+Huddersfield Town,3,7,28,0.42,20,63,324,420
+Wolverhampton Wanderers,16,9,13,1.5,7,74,397,409
