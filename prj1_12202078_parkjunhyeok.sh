@@ -1,12 +1,12 @@
 #!/bin/bash
-
+echo ""
 echo "
 ************OSS1 - Project1************
 * StudentID : 12202078 *
 * Name : 박준혁 *
 ***************************************
 "
-
+echo ""
 if [ "$#" -ne 3 ]; then
     echo "arg not 3"
 fi
@@ -29,7 +29,6 @@ exit=false
 while [ $exit = false ]
 do
     echo -n "
-
     [MENU]
 1. Get the data of Heung-Min Son's Current Club, Appearances, Goals, Assists in
 players.csv
@@ -123,7 +122,7 @@ Enter your CHOICE (1~7) :"
             echo -n "Do you want to modify the format of date? (y/n) :"
             read answer
             if [ "$answer" = "y" ]; then
-                sed -n '1,10p' matches.csv | sed -E 's/^([^,]+),.*$/\1/' | sed -E 's/([a-zA-Z]+) ([0-9]{1,2}) ([0-9]{4}) - ([0-9]{1,2}:[0-9]{2})(am|pm)/\3\/\1\/\2 \4\5/' | sed -E 's/Jan/01/;s/Feb/02/;s/Mar/03/;s/Apr/04/;s/May/05/;s/Jun/06/;s/Jul/07/;s/Aug/08/;s/Sep/09/;s/Oct/10/;s/Nov/11/;s/Dec/12/' | sed -E 's/([0-9]{4})\/([0-9]{2})\/([0-9]{1,2}) ([0-9]{1,2}:[0-9]{2})(am|pm)/\1\/\2\/\3 \4\5/'
+                sed -n '1d;2,11p' matches.csv | sed -E 's/^([^,]+),.*$/\1/' | sed -E 's/([a-zA-Z]+) ([0-9]{1,2}) ([0-9]{4}) - ([0-9]{1,2}:[0-9]{2})(am|pm)/\3\/\1\/\2 \4\5/' | sed -E 's/Jan/01/;s/Feb/02/;s/Mar/03/;s/Apr/04/;s/May/05/;s/Jun/06/;s/Jul/07/;s/Aug/08/;s/Sep/09/;s/Oct/10/;s/Nov/11/;s/Dec/12/' | sed -E 's/([0-9]{4})\/([0-9]{2})\/([0-9]{1,2}) ([0-9]{1,2}:[0-9]{2})(am|pm)/\1\/\2\/\3 \4\5/'
             fi
             echo ""
             ;;
@@ -131,22 +130,21 @@ Enter your CHOICE (1~7) :"
             echo "Select team number:"
             awk -F ',' 'NR > 1 {
                 if (NR % 2 == 0)
-                    printf "%d)\t%s\t", NR-1, $1;
+                    printf "%d)%s\t", NR-1, $1;
                 else
-                    print (NR-1) ")\t" $1;
+                    print (NR-1) ")" $1;
             }' teams.csv
-
-            echo "" 
 
             read -p "Enter your team number: " team_number
 
             team_name=$(awk -F ',' 'NR=='"$team_number"' {print $1}' teams.csv)
 
+            
             awk -F ',' -v team="$team_name" '
             $3 == team {
                 goal_diff = $5 - $6
                 if (goal_diff > 0) {
-                    result[$1] = $3 " " $5 " vs " $6 " " $4 ""
+                    result[$1] = $3 " " $5 " vs " $6 " " $4 " (" goal_diff " goals difference)"
                     if (goal_diff > max_diff) {
                         max_diff = goal_diff
                     }
